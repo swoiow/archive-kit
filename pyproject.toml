@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "archive-kit"
+version = "0.4.0"
+description = "Batch-oriented archive processing engine with recursive extraction, password policy, and tar support."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "OpenAI" }
+]
+dependencies = ["cells-json>=0.3.2", "cells-log>=0.2.2"]
+
+[project.optional-dependencies]
+full = [
+  "py7zr",
+  "rarfile",
+]
+
+[tool.setuptools]
+include-package-data = true
+packages = ["archive_kit", "archive_kit.backends", "archive_kit.utils"]
+package-dir = { archive_kit = "src" }
